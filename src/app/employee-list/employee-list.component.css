@@ -1,0 +1,23 @@
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    padding: 10px 0;
+  }
+ 
+  .title {
+    margin: 0;
+    text-align: left;
+    flex-grow: 1; /* Pushes the title to the right */
+  }
+ 
+  button {
+    height: 36px;
+  }
+
+  .rounded-circle {
+    border-radius: 50%;
+    width: 50px;  /* Set desired width for the image */
+    height: 50px; /* Set desired height for the image */
+    object-fit: cover; /* Ensures the image covers the area without stretching */
+  }

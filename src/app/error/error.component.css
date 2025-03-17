@@ -1,0 +1,38 @@
+.error-card {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #f8d7da; /* Light red background */
+    border: 1px solid #f5c6cb; /* Light red border */
+    border-radius: 8px;
+  }
+  
+  .error-content {
+    text-align: center;
+    color: #721c24; /* Dark red text */
+  }
+  
+  .error-title {
+    color: #721c24;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .error-message {
+    color: #721c24;
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+  
+  .home-button {
+    margin-top: 20px;
+    background-color: #dc3545; /* Red button */
+    color: white;
+    font-size: 16px;
+  }
+  
+  .home-button:hover {
+    background-color: #c82333;
+  }
+  

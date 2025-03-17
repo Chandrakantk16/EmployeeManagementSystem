@@ -1,0 +1,52 @@
+<h2>Employee Details</h2>
+ 
+ 
+<form [formGroup]="EmployeeForm">
+  <kendo-formfield>
+    <label class="k-form-field">
+      <span class="formL">First Name <span class="red-txt">*</span></span>
+      <kendo-textbox  formControlName="FirstName"></kendo-textbox>
+    </label>
+    <kendo-formerror> First Name is required </kendo-formerror>
+    <kendo-formerror> Only letters and spaces are allowed </kendo-formerror>
+  </kendo-formfield>
+  <kendo-formfield>
+    <label class="k-form-field">
+      <span class="formL">Last Name <span class="red-txt">*</span></span>
+      <kendo-textbox  formControlName="LastName"></kendo-textbox>
+    </label>
+    <kendo-formerror> Last Name is required </kendo-formerror>
+    <kendo-formerror> Only letters and spaces are allowed </kendo-formerror>
+  </kendo-formfield>
+  <kendo-formfield>
+    <label class="k-form-field">
+      <span class="formL"> Gender <span class="red-txt">*</span></span>
+    </label>
+    <kendo-dropdownlist formControlName="Gender" [data]="genderList"></kendo-dropdownlist>
+    <kendo-formerror> Gender is required</kendo-formerror>
+  </kendo-formfield>
+  <kendo-formfield>
+    <label class="k-form-field">
+      <span class="formL">Salary <span class="red-txt">*</span></span>
+      <kendo-textbox type="number" formControlName="Salary"></kendo-textbox>
+    </label>
+    <kendo-formerror> salary is required</kendo-formerror>
+    <kendo-formerror> Only numbers allowed </kendo-formerror>
+  </kendo-formfield>
+ 
+  <label>Image:</label>
+  <input type="file" (change)="onFileSelect($event)" required />
+<br>
+ 
+  <button kendoButton themeColor="success" (click)="saveEmployee()"  [disabled]="EmployeeForm.valid">{{ EmployeeId != null ? 'Update':'Save'}} Employee</button> ||
+  <!-- <kendo-button 
+  [primary]="true" 
+  [disabled]="!EmployeeForm.valid" 
+  (click)="saveEmployee()">
+  {{ EmployeeId ? 'Save Changes' : 'Add Employee' }}
+</kendo-button> -->
+
+  <button kendoButton themeColor="error" (click)="GoBack()">Cancel</button>||
+  <button kendoButton themeColor="primary" (click)="navigateToEmployeeList()">Go to Employee List</button>
+</form>
+ 

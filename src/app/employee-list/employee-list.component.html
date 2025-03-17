@@ -1,0 +1,46 @@
+<div class="header-container">
+  <h2 class="title">Employee List</h2>
+  <button themeColor="primary" (click)="AddEmployee()">
+    Add Employee
+  </button>
+</div>
+
+<!-- Kendo Grid with Employee data -->
+<kendo-grid [kendoGridBinding]="EmployeeList | paginate:{itemsPerPage:psize,currentPage:currentPage}"
+  [sortable]="true" [filterable]="true">
+  
+  <kendo-grid-column field="ID" title="ID"></kendo-grid-column>
+  <kendo-grid-column field="FirstName" title="FirstName"></kendo-grid-column>
+  <kendo-grid-column field="LastName" title="LastName"></kendo-grid-column>
+  <kendo-grid-column field="Gender" title="Gender"></kendo-grid-column>
+  <kendo-grid-column field="Salary" title="Salary">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <span>{{ dataItem.Salary | currency: 'USD' }}</span>
+    </ng-template>
+  </kendo-grid-column>
+   <!-- Profile Image Column -->
+   <kendo-grid-column title="Employee Image">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <div class="employee-image">
+        <!-- Display employee's image or a default image if none exists -->
+        <img [src]="dataItem.imageUrl ? dataItem.imageUrl : 'assets/default-avatar.png'" 
+             alt="{{ dataItem.FirstName }} {{ dataItem.LastName }}" 
+             class="rounded-circle" 
+             width="50" 
+             height="50">
+      </div>
+    </ng-template>
+  </kendo-grid-column>
+  
+  <kendo-grid-column title="Actions">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <button kendoButton (click)="EditEmployee(dataItem.ID)" [themeColor]="'info'">Edit</button> ||
+      <button kendoButton (click)="deleteEmployee(dataItem.ID)" [themeColor]="'error'">Delete</button>
+    </ng-template>
+  </kendo-grid-column>
+
+  
+</kendo-grid>
+
+
+<pagination-controls (pageChange)="currentPage=$event"></pagination-controls>
